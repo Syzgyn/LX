@@ -1,0 +1,5 @@
+<project name="Stratovo" default="createJar" basedir="./src">
+	<target name="createJar" description="Create Jar file">
+		<jar jarfile="../../Studio/code/Stratovo.jar" basedir="../../bin" includes="stratovo/*.class" />
+	</target>
+</project>

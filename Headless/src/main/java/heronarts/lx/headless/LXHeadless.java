@@ -17,15 +17,12 @@
 
 package heronarts.lx.headless;
 
-import java.io.File;
+import java.io.*;
 import heronarts.lx.LX;
 import heronarts.lx.LXPattern;
-import heronarts.lx.model.GridModel;
-import heronarts.lx.model.LXModel;
-import heronarts.lx.output.ArtNetDatagram;
-import heronarts.lx.output.FadecandyOutput;
-import heronarts.lx.output.LXDatagramOutput;
-import heronarts.lx.output.OPCOutput;
+import heronarts.lx.model.*;
+import heronarts.lx.output.*;
+import stratovo.Scale;
 
 /**
  * Example headless CLI for the LX engine. Just write a bit of scaffolding code
@@ -35,14 +32,15 @@ public class LXHeadless {
 
   public static LXModel buildModel() {
     // TODO: implement code that loads and builds your model here
-    return new GridModel(30, 30);
+    return new Scale();
+    //return new GridModel(30, 30);
   }
 
-  public static void addArtNetOutput(LX lx) throws Exception {
+  public static void addSacnOutput(LX lx) throws Exception {
     lx.engine.addOutput(
       new LXDatagramOutput(lx).addDatagram(
-        new ArtNetDatagram(lx.getModel(), 512, 0)
-        .setAddress("localhost")
+        new StreamingACNDatagram(lx.getModel(), 1)
+        .setAddress("192.168.0.50")
       )
     );
   }
@@ -59,10 +57,12 @@ public class LXHeadless {
     try {
       LXModel model = buildModel();
       LX lx = new LX(model);
+      new LXModel();
 
       // TODO: add your own output code here
       // addArtNetOutput(lx);
       // addFadecandyOutput(lx);
+      //addSacnOutput(lx);
       addOPCOutput(lx);
 
       // On the CLI you may specify an argument with an .lxp file
