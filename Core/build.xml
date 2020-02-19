@@ -1,5 +1,7 @@
 <project name="Stratovo" default="createJar" basedir="./src">
 	<target name="createJar" description="Create Jar file">
-		<jar jarfile="../../Studio/code/Stratovo.jar" basedir="../../bin" includes="stratovo/*.class" />
+		<jar jarfile="../../Studio/code/Stratovo.jar" basedir="../../bin/" includes="stratovo/**">
+			<zipgroupfileset dir="../../lib" includes="json-20190722.jar" />
+		</jar>
 	</target>
 </project>

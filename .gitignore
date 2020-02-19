@@ -7,3 +7,4 @@ target/
 .idea/
 /*/bin/
 /Studio/code/Stratovo.jar
+.settings

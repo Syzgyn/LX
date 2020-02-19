@@ -22,7 +22,7 @@ import heronarts.lx.LX;
 import heronarts.lx.LXPattern;
 import heronarts.lx.model.*;
 import heronarts.lx.output.*;
-import stratovo.Scale;
+import stratovo.model.VehicleSideFactory;
 
 /**
  * Example headless CLI for the LX engine. Just write a bit of scaffolding code
@@ -32,7 +32,7 @@ public class LXHeadless {
 
   public static LXModel buildModel() {
     // TODO: implement code that loads and builds your model here
-    return new Scale();
+    return  VehicleSideFactory.getVehicleSide("left");
     //return new GridModel(30, 30);
   }
 

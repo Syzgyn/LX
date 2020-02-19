@@ -28,7 +28,8 @@ heronarts.lx.studio.LXStudio lx;
 void setup() {
   // Processing setup, constructs the window and the LX instance
   size(800, 720, P3D);
-  lx = new heronarts.lx.studio.LXStudio(this, new stratovo.Scale(), MULTITHREADED);
+  stratovo.model.VehicleSideFactory.basePath = sketchPath("../");
+  lx = new heronarts.lx.studio.LXStudio(this, stratovo.model.VehicleSideFactory.getVehicleSide("left"));
   lx.ui.setResizable(RESIZABLE);
 }
 
@@ -41,8 +42,8 @@ void initialize(final heronarts.lx.studio.LXStudio lx, heronarts.lx.studio.LXStu
     // Construct a new DatagramOutput object
     LXDatagramOutput output = new LXDatagramOutput(lx);
 
-    StreamingACNDatagram sacn = new StreamingACNDatagram(lx.model);
-    sacn.setAddress(ARTNET_IP);
+    StreamingACNDatagram sacn = new StreamingACNDatagram(lx.getModel());
+      sacn.setAddress(ARTNET_IP);
     //output.addDatagram(sacn);
 
     // Add the datagram output to the LX engine

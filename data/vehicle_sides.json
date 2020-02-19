@@ -1,0 +1,40 @@
+{
+	"sides": {
+		"left": {
+			"scales": [
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "translate",
+							"parameter": [20, 0]
+						},
+						{
+							"command": "rotateY",
+							"parameter": 3.14
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "translate",
+							"parameter": [0, 0]
+						}
+					]
+				}
+			],
+			"lava": [
+			]
+		},
+		"right": {
+		},
+		"front": {
+		},
+		"back": {
+		}
+	}
+}
