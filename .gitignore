@@ -8,3 +8,4 @@ target/
 /*/bin/
 /Studio/code/Stratovo.jar
 .settings
+.settings/*

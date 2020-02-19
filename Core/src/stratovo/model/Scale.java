@@ -2,10 +2,12 @@ package stratovo.model;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import org.json.*;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import heronarts.lx.transform.LXTransform;
 
@@ -53,7 +55,7 @@ public class Scale extends CSVModel {
         return new Scale(l.filename, l.xScale, l.yScale, t);
     }
 
-    public static void generateLayouts() throws JSONException, IOException {
+    public static void generateLayouts() throws IOException {
         if (layouts != null) {
             return;
         }
@@ -62,12 +64,13 @@ public class Scale extends CSVModel {
             layouts.add(new ArrayList<ScaleLayout>());
         }
 
-        JSONObject json = new JSONObject(new String(Files.readAllBytes(Paths.get(basePath, layoutFile))));
-        JSONArray arr = json.getJSONArray("scales");
+        JsonParser p = new JsonParser();
+        String json = new String(Files.readAllBytes(Paths.get(basePath, layoutFile)));
+        JsonArray arr = p.parse(json).getAsJsonObject().get("scales").getAsJsonArray();
 
-        for (int i = 0; i < arr.length(); i++) {
-            JSONObject obj = arr.getJSONObject(i);
-            Size size = Size.valueOf(obj.getString("size"));
+        for (int i = 0; i < arr.size(); i++) {
+            JsonObject obj = arr.get(i).getAsJsonObject();
+            Size size = Size.valueOf(obj.get("size").getAsString());
             layouts.get(size.ordinal()).add(new ScaleLayout(obj));
         }
     }
@@ -77,10 +80,10 @@ public class Scale extends CSVModel {
         public float xScale;
         public float yScale;
 
-        public ScaleLayout(JSONObject obj) {
-            this.filename = obj.getString("filename");
-            this.xScale = obj.getFloat("xScale");
-            this.yScale = obj.getFloat("yScale");
+        public ScaleLayout(JsonObject obj) {
+            this.filename = obj.get("filename").getAsString();
+            this.xScale = obj.get("xScale").getAsFloat();
+            this.yScale = obj.get("yScale").getAsFloat();
         }
     }
 
