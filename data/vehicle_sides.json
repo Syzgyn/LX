@@ -1,18 +1,20 @@
 {
 	"sides": {
 		"left": {
+			"transforms": [
+				{
+					"command": "translate",
+					"parameter": [0, 0, 0]
+				}
+			],
 			"scales": [
 				{
 					"size": "LARGE",
 					"index": 0,
 					"transforms": [
 						{
-							"command": "translate",
-							"parameter": [20, 0]
-						},
-						{
-							"command": "rotateY",
-							"parameter": 3.14
+							"command": "rotateX",
+							"parameter": 0.174
 						}
 					]
 				},
@@ -21,16 +23,170 @@
 					"index": 0,
 					"transforms": [
 						{
+							"command": "rotateX",
+							"parameter": 0.174
+						},
+						{
 							"command": "translate",
-							"parameter": [0, 0]
+							"parameter": [10, 0]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": 0.174
+						},
+						{
+							"command": "translate",
+							"parameter": [20, 0]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": 0.174
+						},
+						{
+							"command": "translate",
+							"parameter": [30, 0]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": 0.174
+						},
+						{
+							"command": "translate",
+							"parameter": [40, 0]
 						}
 					]
 				}
 			],
 			"lava": [
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "translate",
+							"parameter": [5, 10]
+						},
+						{
+							"command": "rotateX",
+							"parameter": 0.174
+						}
+					]
+				}
 			]
 		},
 		"right": {
+			"transforms": [
+				{
+					"command": "rotateYz",
+					"parameter": 3.14
+				},	
+				{
+					"command": "translate",
+					"parameter": [0, 0, 80]
+				}
+			],
+			"scales": [
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": -0.174
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": -0.174
+						},
+						{
+							"command": "translate",
+							"parameter": [10, 0]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": -0.174
+						},
+						{
+							"command": "translate",
+							"parameter": [20, 0]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": -0.174
+						},
+						{
+							"command": "translate",
+							"parameter": [30, 0]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "rotateX",
+							"parameter": -0.174
+						},
+						{
+							"command": "translate",
+							"parameter": [40, 0]
+						}
+					]
+				}
+			],
+			"lava": [
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "translate",
+							"parameter": [5, 10]
+						},
+						{
+							"command": "rotateX",
+							"parameter": -0.174
+						}
+					]
+				}
+			]
 		},
 		"front": {
 		},

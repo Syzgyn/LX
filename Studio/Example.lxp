@@ -1,10 +1,10 @@
 {
   "version": "0.1.1",
-  "timestamp": 1582151412872,
+  "timestamp": 1582170060203,
   "model": {
     "id": 2,
     "class": "heronarts.lx.structure.LXStructure",
-    "modulationColor": -9765120,
+    "modulationColor": -7733504,
     "internal": {},
     "parameters": {
       "label": "LX",
@@ -27,7 +27,7 @@
       "crossfader": 0.5,
       "crossfaderBlendMode": 0,
       "speed": 1.0,
-      "focusedChannel": 0,
+      "focusedChannel": 4,
       "cueA": false,
       "cueB": false,
       "multithreaded": true,
@@ -44,11 +44,11 @@
         "internal": {},
         "parameters": {
           "label": "LX",
-          "hueMode": 0,
+          "hueMode": 2,
           "color/brightness": 100.0,
           "color/saturation": 100.0,
-          "color/hue": 0.0,
-          "period": 120000.0,
+          "color/hue": 120.0,
+          "period": 10000.0,
           "range": 10.0
         },
         "children": {}
@@ -93,7 +93,7 @@
         "parameters": {
           "label": "Master",
           "arm": false,
-          "selected": true
+          "selected": false
         },
         "children": {},
         "effects": [],
@@ -179,20 +179,20 @@
               "slope": 4.5,
               "Band-1": 0.0,
               "Band-2": 0.0,
-              "Band-3": 0.07323952489760044,
-              "Band-4": 0.2044806381617047,
-              "Band-5": 0.24681200358994515,
-              "Band-6": 0.17193260235759222,
-              "Band-7": 0.10061174564337216,
-              "Band-8": 0.2172206874279966,
-              "Band-9": 0.7310606002549709,
-              "Band-10": 0.7838672761446682,
-              "Band-11": 0.3478765585648719,
-              "Band-12": 0.16613369767554553,
-              "Band-13": 0.4086583550815428,
-              "Band-14": 0.431030769159814,
-              "Band-15": 0.42797644983561856,
-              "Band-16": 0.5754249017938506
+              "Band-3": 0.1364545283502986,
+              "Band-4": 0.26015062949470213,
+              "Band-5": 0.5157429955158888,
+              "Band-6": 0.6791716582764391,
+              "Band-7": 0.578784502969456,
+              "Band-8": 0.31782999977687965,
+              "Band-9": 0.6431732180704417,
+              "Band-10": 0.508804067915243,
+              "Band-11": 0.37701952492909896,
+              "Band-12": 0.17757490300439116,
+              "Band-13": 0.20468130516668237,
+              "Band-14": 0.21426261486605058,
+              "Band-15": 0.2623418538913409,
+              "Band-16": 0.5846741982332258
             },
             "children": {}
           }
@@ -226,7 +226,7 @@
         "parameters": {
           "label": "Background",
           "arm": false,
-          "selected": true,
+          "selected": false,
           "enabled": true,
           "cue": false,
           "fader": 0.41428572591394186,
@@ -381,7 +381,7 @@
           "label": "Color",
           "arm": false,
           "selected": false,
-          "enabled": true,
+          "enabled": false,
           "cue": false,
           "fader": 1.0,
           "crossfadeGroup": 0,
@@ -439,6 +439,66 @@
           }
         ],
         "group": 139
+      },
+      {
+        "id": 397,
+        "class": "heronarts.lx.LXChannel",
+        "modulationColor": -13172992,
+        "internal": {
+          "controlsExpanded": true
+        },
+        "parameters": {
+          "label": "Lava",
+          "arm": false,
+          "selected": true,
+          "enabled": true,
+          "cue": false,
+          "fader": 1.0,
+          "crossfadeGroup": 0,
+          "blendMode": 0,
+          "midiMonitor": false,
+          "midiChannel": 16,
+          "autoCycleEnabled": false,
+          "autoCycleMode": 0,
+          "autoCycleTimeSecs": 60.0,
+          "transitionEnabled": false,
+          "transitionTimeSecs": 5.0,
+          "transitionBlendMode": 0
+        },
+        "children": {},
+        "effects": [],
+        "clips": [],
+        "patternIndex": 0,
+        "patterns": [
+          {
+            "id": 409,
+            "class": "stratovo.patterns.LavaTest",
+            "modulationColor": -983296,
+            "internal": {
+              "expanded": true,
+              "modulationExpanded": false,
+              "autoCycleEligible": true
+            },
+            "parameters": {
+              "label": "LavaTest"
+            },
+            "children": {
+              "modulation": {
+                "id": 410,
+                "class": "heronarts.lx.LXModulationEngine",
+                "modulationColor": -35840,
+                "internal": {},
+                "parameters": {
+                  "label": "Modulation"
+                },
+                "children": {},
+                "modulators": [],
+                "modulations": [],
+                "triggers": []
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -460,7 +520,7 @@
         "centerPoint": false,
         "camera": {
           "active": false,
-          "radius": 38.52428142258495,
+          "radius": 125.67985133578773,
           "theta": -0.09,
           "phi": 0.25500000000000017,
           "x": 9.5,
@@ -470,7 +530,7 @@
         "cue": [
           {
             "active": false,
-            "radius": 38.52428142258495,
+            "radius": 125.67985133578773,
             "theta": -0.09,
             "phi": 0.25500000000000017,
             "x": 9.5,

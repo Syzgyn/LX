@@ -23,20 +23,27 @@
 
 
 // Reference to top-level LX instance
+import java.util.List;
 heronarts.lx.studio.LXStudio lx;
 
 void setup() {
   // Processing setup, constructs the window and the LX instance
-  size(800, 720, P3D);
+  size(800, 720, P3D);  
   stratovo.model.VehicleSideFactory.basePath = sketchPath("../");
-  lx = new heronarts.lx.studio.LXStudio(this, stratovo.model.VehicleSideFactory.getVehicleSide("left"));
+  lx = new heronarts.lx.studio.LXStudio(this, stratovo.model.VehicleFactory.getVehicle());
   lx.ui.setResizable(RESIZABLE);
+  
 }
 
 void initialize(final heronarts.lx.studio.LXStudio lx, heronarts.lx.studio.LXStudio.UI ui) {
   // Add custom components or output drivers here
   //final String ARTNET_IP = "192.168.1.151";
-  final String ARTNET_IP = "127.0.0.1";
+  final String ARTNET_IP = "192.168.0.50";
+  lx.registerPattern(stratovo.patterns.LavaTest.class);
+  List patterns = lx.getRegisteredPatterns();
+  for (Object p : patterns) {
+    System.out.println(p);
+  }
 
   try {
     // Construct a new DatagramOutput object
@@ -44,12 +51,12 @@ void initialize(final heronarts.lx.studio.LXStudio lx, heronarts.lx.studio.LXStu
 
     StreamingACNDatagram sacn = new StreamingACNDatagram(lx.getModel());
       sacn.setAddress(ARTNET_IP);
-    //output.addDatagram(sacn);
+    output.addDatagram(sacn);
 
     // Add the datagram output to the LX engine
     
     //lx.addOutput(output);
-    lx.addOutput(new OPCOutput(lx, "localhost", 7890));
+    //lx.addOutput(new OPCOutput(lx, "localhost", 7890));
   } catch (Exception x) {
     x.printStackTrace();
   }

@@ -1,15 +1,34 @@
 package stratovo.model;
-import java.io.*;
-import heronarts.lx.model.*;
-import heronarts.lx.transform.LXTransform;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
-public class CSVModel extends LXModel {
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import heronarts.lx.model.LXModel;
+import heronarts.lx.model.LXPoint;
+import heronarts.lx.transform.LXTransform;
+
+public abstract class CSVModel extends LXModel {
     public final static float defaultWidth = 10.0f;
     public final static float defaultHeight = 20.0f;
 
     public static String basePath = "./";
+    
+    public enum Size {
+        LARGE,
+        MEDIUM,
+        SMALL
+    };
+    
+
+    protected static String layoutFile;
 
     public CSVModel(String filename) {
         super(generatePoints(filename, new CSVModel.Orientation(defaultWidth, defaultHeight)));
@@ -36,6 +55,42 @@ public class CSVModel extends LXModel {
         this.setKeys(newKeys);
 
         return this;
+    }
+    
+    public boolean hasKey(String key) {
+    	for(String s: this.getKeys()) {
+    		if(s.equals(key)) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
+    
+    
+    protected static ArrayList<ArrayList<Layout>> generateLayouts(String basePath, String layoutFile, String category) {
+        ArrayList<ArrayList<Layout>> layouts = new ArrayList<ArrayList<Layout>>();
+        for (int i = 0; i <= Size.values().length; i++) {
+            layouts.add(new ArrayList<Layout>());
+        }
+        
+        JsonParser p = new JsonParser();
+		try {
+			String json = new String(Files.readAllBytes(Paths.get(basePath, layoutFile)));
+			JsonArray arr = p.parse(json).getAsJsonObject().get(category).getAsJsonArray();
+
+	        for (int i = 0; i < arr.size(); i++) {
+	            JsonObject obj = arr.get(i).getAsJsonObject();
+	            Size size = Size.valueOf(obj.get("size").getAsString());
+	            layouts.get(size.ordinal()).add(new Layout(obj));
+	        }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        
+        return layouts;
     }
 
     protected static List<LXPoint> generatePoints(String filename, Orientation o) {
@@ -121,6 +176,18 @@ public class CSVModel extends LXModel {
             t.scale(this.width, this.height, 1);
 
             return t;
+        }
+    }
+    
+    protected  static class Layout {
+        public String filename;
+        public float xScale;
+        public float yScale;
+
+        public Layout(JsonObject obj) {
+            this.filename = obj.get("filename").getAsString();
+            this.xScale = obj.get("xScale").getAsFloat();
+            this.yScale = obj.get("yScale").getAsFloat();
         }
     }
 }

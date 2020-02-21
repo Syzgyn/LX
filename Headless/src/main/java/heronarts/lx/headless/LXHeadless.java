@@ -22,6 +22,7 @@ import heronarts.lx.LX;
 import heronarts.lx.LXPattern;
 import heronarts.lx.model.*;
 import heronarts.lx.output.*;
+import stratovo.model.VehicleFactory;
 import stratovo.model.VehicleSideFactory;
 
 /**
@@ -32,6 +33,11 @@ public class LXHeadless {
 
   public static LXModel buildModel() {
     // TODO: implement code that loads and builds your model here
+	  try {
+	return VehicleFactory.getVehicle();
+	  } catch (Exception e) {
+		  e.printStackTrace();
+	  }
     return  VehicleSideFactory.getVehicleSide("left");
     //return new GridModel(30, 30);
   }

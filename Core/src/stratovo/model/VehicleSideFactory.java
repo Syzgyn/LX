@@ -24,8 +24,14 @@ public class VehicleSideFactory {
             Scale.basePath = basePath;
         }
 
-        Scale[] scales = generateScales(side);
-        VehicleSide vehicleSide = new VehicleSide(scales);
+        JsonObject sideConfig = jsonConfig.getAsJsonObject("sides").getAsJsonObject(side);
+        
+        LXTransform t = createTransform(sideConfig.getAsJsonArray("transforms"));
+
+        CSVModel[] scales = generateModels(sideConfig.getAsJsonArray("scales"), "Scale", t);
+        CSVModel[] lava = generateModels(sideConfig.getAsJsonArray("lava"), "Lava", t);
+        
+        VehicleSide vehicleSide = new VehicleSide(scales, lava);
         vehicleSide.setKeys(new String[] {"vehicleSide", side});
 
         return vehicleSide;
@@ -42,32 +48,42 @@ public class VehicleSideFactory {
         }
         jsonConfig = p.parse(json).getAsJsonObject();
     }
+    
+	private static CSVModel[] generateModels(JsonArray jsonConfig, String className, LXTransform t) {
+        ArrayList<CSVModel> models = new ArrayList<CSVModel>();
 
-
-    private static Scale[] generateScales(String side) {
-        JsonArray scaleConfig = jsonConfig.getAsJsonObject("sides")
-            .getAsJsonObject(side)
-            .getAsJsonArray("scales");
-
-        ArrayList<Scale> scales = new ArrayList<Scale>();
-
-        for(int i = 0; i < scaleConfig.size(); i++) {
-            JsonObject config = scaleConfig.get(i).getAsJsonObject();
+        for(int i = 0; i < jsonConfig.size(); i++) {
+            JsonObject config = jsonConfig.get(i).getAsJsonObject();
             String size = config.get("size").getAsString();
             int index = config.get("index").getAsInt();
             JsonArray transforms = config.get("transforms").getAsJsonArray();
-
-            LXTransform t = createTransform(transforms);
-
-            scales.add(createScale(size, index, t));
+            
+            t.push();
+            applyTransform(transforms, t);
+            
+            switch (className) {
+            case "Scale":
+            	models.add(createScale(size, index, t));
+            	break;
+            case "Lava":
+            	models.add(createLava(size, index, t));
+            	
+            }
+            t.pop();
         }
 
-        Scale[] array = new Scale[scales.size()];
-        return scales.toArray(array);
+        CSVModel[] array = new CSVModel[models.size()];
+        return models.toArray(array);
     }
-
+    
     private static LXTransform createTransform(JsonArray array) {
-        LXTransform t = new LXTransform();
+    	LXTransform t = new LXTransform();
+    	applyTransform(array, t);
+    	
+    	return t;
+    }
+    
+    private static void applyTransform(JsonArray array, LXTransform t) {
         for (int i = 0; i < array.size(); i++) {
             JsonObject j = array.get(i).getAsJsonObject();
             String command = j.get("command").getAsString();
@@ -114,13 +130,18 @@ public class VehicleSideFactory {
                 break;
             }
         }
-
-        return t;
     }
 
-    private static Scale createScale(String size, int index, LXTransform t) {
+	public static Scale createScale(String size, int index, LXTransform t) {
         Scale scale = Scale.createScale(size, index, t);
         scale.addKey("scale");
+
+        return scale;
+    }
+    
+	private static Scale createLava(String size, int index, LXTransform t) {
+        Scale scale = Scale.createScale(size, index, t);
+        scale.addKey("lava");
 
         return scale;
     }
