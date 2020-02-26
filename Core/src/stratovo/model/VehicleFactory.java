@@ -7,6 +7,8 @@ public class VehicleFactory {
 		ArrayList<VehicleSide> sides = new ArrayList<VehicleSide>();
 		sides.add(VehicleSideFactory.getVehicleSide("left"));
 		sides.add(VehicleSideFactory.getVehicleSide("right"));
+
+		sides.add(VehicleSideFactory.getVehicleSide("seats"));
 		
 		VehicleSide[] array = new VehicleSide[sides.size()];
 		array = sides.toArray(array);

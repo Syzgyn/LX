@@ -139,10 +139,10 @@ public class VehicleSideFactory {
         return scale;
     }
     
-	private static Scale createLava(String size, int index, LXTransform t) {
-        Scale scale = Scale.createScale(size, index, t);
-        scale.addKey("lava");
+	private static Lava createLava(String size, int index, LXTransform t) {
+        Lava lava = Lava.createLava(size, index, t);
+        lava.addKey("lava");
 
-        return scale;
+        return lava;
     }
 }

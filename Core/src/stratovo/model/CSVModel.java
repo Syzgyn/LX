@@ -15,20 +15,18 @@ import heronarts.lx.model.LXModel;
 import heronarts.lx.model.LXPoint;
 import heronarts.lx.transform.LXTransform;
 
-public abstract class CSVModel extends LXModel {
+public abstract class CSVModel extends LXModel implements StratovoModel {
     public final static float defaultWidth = 10.0f;
     public final static float defaultHeight = 20.0f;
 
     public static String basePath = "./";
+    protected static String layoutFile = "data/model_definitions.json";
     
     public enum Size {
         LARGE,
         MEDIUM,
         SMALL
     };
-    
-
-    protected static String layoutFile;
 
     public CSVModel(String filename) {
         super(generatePoints(filename, new CSVModel.Orientation(defaultWidth, defaultHeight)));
@@ -41,32 +39,6 @@ public abstract class CSVModel extends LXModel {
     public CSVModel(String filename, float xScale, float yScale, LXTransform t) {
         super(generatePoints(filename, new CSVModel.Orientation(xScale, yScale, t)));
     }
-
-    public CSVModel addKey(String key) {
-        String[] oldKeys = this.getKeys();
-        String[] newKeys = new String[oldKeys.length + 1];
-
-        for (int i = 0; i < oldKeys.length; i++) {
-            newKeys[i] = oldKeys[i];
-        }
-
-        newKeys[newKeys.length - 1] = key;
-
-        this.setKeys(newKeys);
-
-        return this;
-    }
-    
-    public boolean hasKey(String key) {
-    	for(String s: this.getKeys()) {
-    		if(s.equals(key)) {
-    			return true;
-    		}
-    	}
-    	return false;
-    }
-    
-    
     
     protected static ArrayList<ArrayList<Layout>> generateLayouts(String basePath, String layoutFile, String category) {
         ArrayList<ArrayList<Layout>> layouts = new ArrayList<ArrayList<Layout>>();

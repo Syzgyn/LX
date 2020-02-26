@@ -22,8 +22,10 @@ import heronarts.lx.LX;
 import heronarts.lx.LXPattern;
 import heronarts.lx.model.*;
 import heronarts.lx.output.*;
+import stratovo.ProjectListener;
 import stratovo.model.VehicleFactory;
 import stratovo.model.VehicleSideFactory;
+import stratovo.patterns.ExamplePattern;
 
 /**
  * Example headless CLI for the LX engine. Just write a bit of scaffolding code
@@ -64,6 +66,8 @@ public class LXHeadless {
       LXModel model = buildModel();
       LX lx = new LX(model);
       new LXModel();
+      
+      lx.addProjectListener(new ProjectListener(lx));
 
       // TODO: add your own output code here
       // addArtNetOutput(lx);

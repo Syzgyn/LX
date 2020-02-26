@@ -1,7 +1,7 @@
 {
   "projectFileName": "Example.lxp",
-  "windowWidth": -1,
-  "windowHeight": -1,
+  "windowWidth": 1078,
+  "windowHeight": 720,
   "focusChannelOnCue": false,
   "focusActivePattern": false,
   "sendCueToOutput": false

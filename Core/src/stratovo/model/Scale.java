@@ -3,10 +3,8 @@ package stratovo.model;
 import java.util.ArrayList;
 
 import heronarts.lx.transform.LXTransform;
-import stratovo.model.CSVModel.Layout;
 
 public class Scale extends CSVModel {
-    protected static String layoutFile = "data/scale_definitions.json";
     public static ArrayList<ArrayList<Layout>> layouts;
 
     public Scale(String filename) {

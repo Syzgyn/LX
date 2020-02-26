@@ -22,17 +22,19 @@ public class VehicleSide extends LXModel {
         this.scales = scales;
         this.lava = lava;
         
+        /*
         int[] l = this.lava[0].toIndexBuffer(0, 5);
         int[] s = this.scales[0].toIndexBuffer(0, 10);
         try {
         	int[] buffer = Arrays.copyOf(l, l.length + s.length);
         	System.arraycopy(s, 0, buffer, l.length, s.length);
         	LXDatagram data = new StreamingACNDatagram(buffer, 900).setAddress("192.168.0.50");
-			this.addDatagram(data);
+			//this.addDatagram(data);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
     }
     
     private static LXModel[] combineModels(CSVModel[] scales, CSVModel[] lava) {

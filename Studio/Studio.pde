@@ -32,18 +32,20 @@ void setup() {
   stratovo.model.VehicleSideFactory.basePath = sketchPath("../");
   lx = new heronarts.lx.studio.LXStudio(this, stratovo.model.VehicleFactory.getVehicle());
   lx.ui.setResizable(RESIZABLE);
-  
 }
 
 void initialize(final heronarts.lx.studio.LXStudio lx, heronarts.lx.studio.LXStudio.UI ui) {
   // Add custom components or output drivers here
   //final String ARTNET_IP = "192.168.1.151";
   final String ARTNET_IP = "192.168.0.50";
-  lx.registerPattern(stratovo.patterns.LavaTest.class);
+  //lx.registerPattern(stratovo.patterns.LavaTest.class);
   List patterns = lx.getRegisteredPatterns();
   for (Object p : patterns) {
-    System.out.println(p);
+   // System.out.println(p);
   }
+  
+      lx.addProjectListener(new stratovo.ProjectListener(lx));
+  
 
   try {
     // Construct a new DatagramOutput object
@@ -64,6 +66,13 @@ void initialize(final heronarts.lx.studio.LXStudio lx, heronarts.lx.studio.LXStu
 
 void onUIReady(heronarts.lx.studio.LXStudio lx, heronarts.lx.studio.LXStudio.UI ui) {
   // Add custom UI components here
+  List<LXChannelBus> channels = lx.engine.getChannels();
+  for (LXChannelBus c : channels) {
+    //System.out.println(c.label.getString());
+    Vehicle v = (Vehicle) lx.getModel();
+    LXModel m = new LXModel(v.lava);
+    //c.setModel(m);
+  }
 }
 
 void draw() {

@@ -77,7 +77,7 @@
 			],
 			"lava": [
 				{
-					"size": "LARGE",
+					"size": "MEDIUM",
 					"index": 0,
 					"transforms": [
 						{
@@ -94,10 +94,6 @@
 		},
 		"right": {
 			"transforms": [
-				{
-					"command": "rotateYz",
-					"parameter": 3.14
-				},	
 				{
 					"command": "translate",
 					"parameter": [0, 0, 80]
@@ -173,7 +169,7 @@
 			],
 			"lava": [
 				{
-					"size": "LARGE",
+					"size": "MEDIUM",
 					"index": 0,
 					"transforms": [
 						{
@@ -191,6 +187,57 @@
 		"front": {
 		},
 		"back": {
+		},
+		"seats": {
+			"transforms": [
+				{
+					"command": "rotateY",
+					"parameter": -1.57
+				},
+				{
+					"command": "translate",
+					"parameter": [10, 10, -50]
+				}
+			],
+			"scales": [],
+			"lava": [
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "translate",
+							"parameter": [0, 16, 16]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "translate",
+							"parameter": [0, 32, 32]
+						}
+					]
+				},
+				{
+					"size": "LARGE",
+					"index": 0,
+					"transforms": [
+						{
+							"command": "translate",
+							"parameter": [0, 48, 48]
+						}
+					]
+				}
+			]
 		}
 	}
 }

@@ -16,7 +16,7 @@
   * @author Mark C. Slee <mark@heronarts.com>
   */
 
- package heronarts.lx.headless;
+ package stratovo.patterns;
 
 import heronarts.lx.LX;
 import heronarts.lx.LXPattern;
