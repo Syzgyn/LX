@@ -8,12 +8,9 @@ import heronarts.lx.LX;
 import heronarts.lx.LXEffect;
 import heronarts.lx.model.LXModel;
 import heronarts.lx.model.LXPoint;
-import heronarts.lx.parameter.CompoundParameter;
 import heronarts.lx.parameter.EnumParameter;
-import heronarts.lx.parameter.FunctionalParameter;
 import heronarts.lx.parameter.LXParameter;
 import heronarts.lx.parameter.LXParameterListener;
-import stratovo.effects.LavaMask.Section;
 import stratovo.model.Vehicle;
 
 public class LavaMask extends LXEffect implements LXParameterListener {
@@ -42,6 +39,7 @@ public class LavaMask extends LXEffect implements LXParameterListener {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void onParameterChanged(LXParameter parameter) {
 		Field field;
 		LXModel[] models;

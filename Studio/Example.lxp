@@ -1,10 +1,10 @@
 {
   "version": "0.1.1",
-  "timestamp": 1582661962823,
+  "timestamp": 1582763893299,
   "model": {
     "id": 2,
     "class": "heronarts.lx.structure.LXStructure",
-    "modulationColor": -16711714,
+    "modulationColor": -16514817,
     "internal": {},
     "parameters": {
       "label": "LX",
@@ -27,7 +27,7 @@
       "crossfader": 0.5,
       "crossfaderBlendMode": 0,
       "speed": 1.0,
-      "focusedChannel": 5,
+      "focusedChannel": 1,
       "cueA": false,
       "cueB": false,
       "multithreaded": true,
@@ -245,7 +245,7 @@
         "parameters": {
           "label": "Pattern",
           "arm": false,
-          "selected": false,
+          "selected": true,
           "enabled": true,
           "cue": false,
           "fader": 1.0,
@@ -293,7 +293,7 @@
           }
         ],
         "clips": [],
-        "patternIndex": 2,
+        "patternIndex": 3,
         "patterns": [
           {
             "id": 111,
@@ -394,25 +394,25 @@
             }
           },
           {
-            "id": 905,
-            "class": "heronarts.p3lx.pattern.SolidPattern",
-            "modulationColor": -16711724,
+            "id": 1091,
+            "class": "stratovo.patterns.PatternWaves",
+            "modulationColor": -65391,
             "internal": {
               "expanded": true,
               "modulationExpanded": false,
               "autoCycleEligible": true
             },
             "parameters": {
-              "label": "Solid",
-              "color/brightness": 100.0,
-              "color/saturation": 100.0,
-              "color/hue": 0.0
+              "label": "PatternWaves",
+              "Size": 1.0,
+              "Speed": 0.2,
+              "Slope": 10.0
             },
             "children": {
               "modulation": {
-                "id": 906,
+                "id": 1092,
                 "class": "heronarts.lx.LXModulationEngine",
-                "modulationColor": -1024,
+                "modulationColor": -1114368,
                 "internal": {},
                 "parameters": {
                   "label": "Modulation"
@@ -455,7 +455,7 @@
         "children": {},
         "effects": [],
         "clips": [],
-        "patternIndex": 1,
+        "patternIndex": 0,
         "patterns": [
           {
             "id": 131,
@@ -483,37 +483,6 @@
                 "id": 348,
                 "class": "heronarts.lx.LXModulationEngine",
                 "modulationColor": -4783873,
-                "internal": {},
-                "parameters": {
-                  "label": "Modulation"
-                },
-                "children": {},
-                "modulators": [],
-                "modulations": [],
-                "triggers": []
-              }
-            }
-          },
-          {
-            "id": 907,
-            "class": "heronarts.p3lx.pattern.SolidPattern",
-            "modulationColor": -16757505,
-            "internal": {
-              "expanded": true,
-              "modulationExpanded": false,
-              "autoCycleEligible": true
-            },
-            "parameters": {
-              "label": "Solid",
-              "color/brightness": 100.0,
-              "color/saturation": 100.0,
-              "color/hue": 232.86486515402794
-            },
-            "children": {
-              "modulation": {
-                "id": 908,
-                "class": "heronarts.lx.LXModulationEngine",
-                "modulationColor": -4849920,
                 "internal": {},
                 "parameters": {
                   "label": "Modulation"
@@ -575,39 +544,8 @@
         "children": {},
         "effects": [],
         "clips": [],
-        "patternIndex": 2,
+        "patternIndex": 3,
         "patterns": [
-          {
-            "id": 473,
-            "class": "heronarts.p3lx.pattern.SolidPattern",
-            "modulationColor": -16760065,
-            "internal": {
-              "expanded": true,
-              "modulationExpanded": false,
-              "autoCycleEligible": true
-            },
-            "parameters": {
-              "label": "Solid",
-              "color/brightness": 100.0,
-              "color/saturation": 100.0,
-              "color/hue": 0.0
-            },
-            "children": {
-              "modulation": {
-                "id": 474,
-                "class": "heronarts.lx.LXModulationEngine",
-                "modulationColor": -524544,
-                "internal": {},
-                "parameters": {
-                  "label": "Modulation"
-                },
-                "children": {},
-                "modulators": [],
-                "modulations": [],
-                "triggers": []
-              }
-            }
-          },
           {
             "id": 553,
             "class": "stratovo.patterns.ExamplePattern",
@@ -672,6 +610,67 @@
                 "triggers": []
               }
             }
+          },
+          {
+            "id": 1000,
+            "class": "stratovo.patterns.PatternWaves",
+            "modulationColor": -65434,
+            "internal": {
+              "expanded": true,
+              "modulationExpanded": false,
+              "autoCycleEligible": true
+            },
+            "parameters": {
+              "label": "PatternWaves",
+              "Size": 0.8,
+              "Speed": 0.20200001783669003,
+              "Slope": 0.0
+            },
+            "children": {
+              "modulation": {
+                "id": 1001,
+                "class": "heronarts.lx.LXModulationEngine",
+                "modulationColor": -13631233,
+                "internal": {},
+                "parameters": {
+                  "label": "Modulation"
+                },
+                "children": {},
+                "modulators": [],
+                "modulations": [],
+                "triggers": []
+              }
+            }
+          },
+          {
+            "id": 1087,
+            "class": "stratovo.patterns.PatternMarquee",
+            "modulationColor": -7602432,
+            "internal": {
+              "expanded": true,
+              "modulationExpanded": false,
+              "autoCycleEligible": true
+            },
+            "parameters": {
+              "label": "PatternMarquee",
+              "Size": 15.0,
+              "Speed": 0.15000001899898058
+            },
+            "children": {
+              "modulation": {
+                "id": 1088,
+                "class": "heronarts.lx.LXModulationEngine",
+                "modulationColor": -16712705,
+                "internal": {},
+                "parameters": {
+                  "label": "Modulation"
+                },
+                "children": {},
+                "modulators": [],
+                "modulations": [],
+                "triggers": []
+              }
+            }
           }
         ],
         "group": 782
@@ -686,7 +685,7 @@
         "parameters": {
           "label": "Color",
           "arm": false,
-          "selected": true,
+          "selected": false,
           "enabled": true,
           "cue": false,
           "fader": 1.0,
@@ -707,25 +706,24 @@
         "patternIndex": 0,
         "patterns": [
           {
-            "id": 788,
-            "class": "heronarts.p3lx.pattern.SolidPattern",
-            "modulationColor": -5504769,
+            "id": 1089,
+            "class": "stratovo.patterns.ColorAutumn",
+            "modulationColor": -16761345,
             "internal": {
               "expanded": true,
               "modulationExpanded": false,
               "autoCycleEligible": true
             },
             "parameters": {
-              "label": "Solid",
-              "color/brightness": 100.0,
-              "color/saturation": 100.0,
-              "color/hue": 35.57657676935196
+              "label": "ColorAutumn",
+              "Range": 30.0,
+              "Speed": 1.0
             },
             "children": {
               "modulation": {
-                "id": 789,
+                "id": 1090,
                 "class": "heronarts.lx.LXModulationEngine",
-                "modulationColor": -65465,
+                "modulationColor": -65300,
                 "internal": {},
                 "parameters": {
                   "label": "Modulation"
@@ -760,9 +758,9 @@
         "centerPoint": false,
         "camera": {
           "active": false,
-          "radius": 193.413826005905,
-          "theta": 0.7058677882536284,
-          "phi": 0.6678375154253229,
+          "radius": 85.53565823920918,
+          "theta": 0.3808754810995456,
+          "phi": 0.1543079140218788,
           "x": 8.975151796359569,
           "y": 25.068168818950653,
           "z": 26.50062125036493
@@ -770,9 +768,9 @@
         "cue": [
           {
             "active": false,
-            "radius": 193.413826005905,
-            "theta": 0.7058677882536284,
-            "phi": 0.6678375154253229,
+            "radius": 85.53565823920918,
+            "theta": 0.3808754810995456,
+            "phi": 0.1543079140218788,
             "x": 8.975151796359569,
             "y": 25.068168818950653,
             "z": 26.50062125036493

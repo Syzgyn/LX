@@ -14,15 +14,12 @@ public class ProjectListener implements heronarts.lx.LX.ProjectListener {
 	public ProjectListener(LX lx) {
 		this.lx = lx;
 		
-		//lx.registerEffect(LavaMask.class);
+		registerPatterns();
 	}
 
 	@Override
 	public void projectChanged(File file, Change change) {
-		System.out.println(change);
-		//if (change.equals(Change.OPEN)) {
 			processChannels();
-		//}
 	}
 	
 	private void processChannels() {
@@ -51,5 +48,9 @@ public class ProjectListener implements heronarts.lx.LX.ProjectListener {
 				break;
 			}
 		}
+	}
+	
+	protected void registerPatterns() {
+		
 	}
 }

@@ -1,11 +1,8 @@
 package stratovo.model;
 
-import java.net.UnknownHostException;
 import java.util.Arrays;
 
 import heronarts.lx.model.LXModel;
-import heronarts.lx.output.LXDatagram;
-import heronarts.lx.output.StreamingACNDatagram;
 
 public class VehicleSide extends LXModel {
     public CSVModel[] scales;
