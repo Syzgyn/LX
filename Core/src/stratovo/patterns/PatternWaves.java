@@ -15,12 +15,9 @@ public class PatternWaves extends LXPattern {
 	  
 	private final LXUtils.LookupTable.Sin sinTable = new LXUtils.LookupTable.Sin(512);
 
-	public final CompoundParameter speed = (CompoundParameter)
-			new CompoundParameter("Speed", 0.2, 0.1, 1.5);
+	public final CompoundParameter speed = new CompoundParameter("Speed", 0.2, 0.1, 1.5);
 
-	public final CompoundParameter slope = (CompoundParameter)
-			new CompoundParameter("Slope", 0, -2, 2);
-	
+	public final CompoundParameter slope = new CompoundParameter("Slope", 0, -2, 2);
 	
 	public final CompoundParameter size =
 			new CompoundParameter("Size", 1, .1, 5)
@@ -42,7 +39,7 @@ public class PatternWaves extends LXPattern {
 		accum += this.speed.getValue() * .02 * deltaMs;
 		
 		for (LXPoint point : model.points) {
-	      setColor(point.index, LXColor.gray(Math.max(0,sinTable.sin((float) (((point.y + point.index * _slope) / _size + accum))) * 60 + 40)));
+	      setColor(point.index, LXColor.gray(Math.max(0,sinTable.sin((point.y + point.index * _slope) / _size + accum) * 60 + 40)));
 	    }
 	}
 

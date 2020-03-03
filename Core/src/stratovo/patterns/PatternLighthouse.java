@@ -13,10 +13,10 @@ import heronarts.lx.parameter.CompoundParameter;
 public class PatternLighthouse extends SpinningPattern {
 	private static final double HALF_PI = Math.PI / 2;
 
-	public final CompoundParameter size = (CompoundParameter) new CompoundParameter("Size", HALF_PI, Math.PI / 8,
+	public final CompoundParameter size = new CompoundParameter("Size", HALF_PI, Math.PI / 8,
 			TWO_PI).setDescription("Size of lighthouse arc");
 
-	public final CompoundParameter slope = (CompoundParameter) new CompoundParameter("Slope", 0, -1, 1)
+	public final CompoundParameter slope = new CompoundParameter("Slope", 0, -1, 1)
 			.setDescription("Slope of gradient");
 
 	private final LXModulator sizeDamped = startModulator(

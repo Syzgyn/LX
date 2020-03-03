@@ -9,12 +9,10 @@ import heronarts.lx.parameter.CompoundParameter;
 
 @LXCategory(LXCategory.COLOR)
 public class ColorRain extends LXPattern {
-	public final CompoundParameter speed = (CompoundParameter)
-			new CompoundParameter("Speed", 1, 5)
+	public final CompoundParameter speed = new CompoundParameter("Speed", 1, 5)
 			.setDescription("Speed of the rainfall");
 
-	public final CompoundParameter range = (CompoundParameter)
-			new CompoundParameter("Range", 30, 5, 50)
+	public final CompoundParameter range = new CompoundParameter("Range", 30, 5, 50)
 			.setDescription("Range of blue depth");
 
 	private static final int BUCKETS = 37;

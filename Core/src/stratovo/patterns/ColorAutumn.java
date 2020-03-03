@@ -10,8 +10,7 @@ import heronarts.lx.parameter.CompoundParameter;
 @LXCategory(LXCategory.COLOR)
 public class ColorAutumn extends LXPattern {
 
-	public final CompoundParameter speed = (CompoundParameter)
-			new CompoundParameter("Speed", 1, 5);
+	public final CompoundParameter speed = new CompoundParameter("Speed", 1, 5);
 
 	public final CompoundParameter range = new CompoundParameter("Range", 30, 15, 45); 
 

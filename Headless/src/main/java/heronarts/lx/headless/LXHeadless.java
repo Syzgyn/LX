@@ -25,6 +25,7 @@ import heronarts.lx.output.*;
 import stratovo.ProjectListener;
 import stratovo.model.VehicleFactory;
 import stratovo.model.VehicleSideFactory;
+import stratovo.patterns.ColorPlasma;
 import stratovo.patterns.ExamplePattern;
 
 /**
@@ -80,7 +81,7 @@ public class LXHeadless {
         lx.openProject(new File(args[0]));
       } else {
         lx.setPatterns(new LXPattern[] {
-          new ExamplePattern(lx)
+          new ColorPlasma(lx)
         });
       }
 

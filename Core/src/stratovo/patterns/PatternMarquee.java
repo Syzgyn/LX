@@ -15,8 +15,7 @@ public class PatternMarquee extends LXPattern {
 	
 	private final LXUtils.LookupTable.Sin sinTable = new LXUtils.LookupTable.Sin(512);
 	
-	public final CompoundParameter speed = (CompoundParameter)
-			new CompoundParameter("Speed", 1, 5);
+	public final CompoundParameter speed = new CompoundParameter("Speed", 1, 5);
 
 	public final CompoundParameter size = new CompoundParameter("Size", 30, 15, 45); 
 
@@ -32,7 +31,7 @@ public class PatternMarquee extends LXPattern {
 		accum += this.speed.getValue() * .02 * deltaMs;
 		
 		for (LXPoint point : model.points) {
-	      setColor(point.index, LXColor.gray(Math.max(0,sinTable.sin((float) (point.index * _size + accum))) * 50 + 50));
+	      setColor(point.index, LXColor.gray(Math.max(0,sinTable.sin(point.index * _size + accum)) * 50 + 50));
 	      
 	    }
 	}

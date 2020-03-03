@@ -5,6 +5,7 @@
 		<javac destdir="./bin" includeantruntime="false">
 			<src path="./src" />
 			<src path="../LX/src" />
+			<src path="../Core/src" />
 			<classpath>
 				<pathelement location="../lib/gson-2.8.0.jar" />
 				<pathelement location="../lib/coremidi4j-0.9.jar" />

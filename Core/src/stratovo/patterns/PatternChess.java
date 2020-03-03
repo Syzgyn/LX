@@ -13,7 +13,7 @@ import heronarts.lx.parameter.CompoundParameter;
 @LXCategory(LXCategory.FORM)
 public class PatternChess extends SpinningPattern {
 
-	public final CompoundParameter numSpots = (CompoundParameter) new CompoundParameter("Spots", 4, 2, 8)
+	public final CompoundParameter numSpots = new CompoundParameter("Spots", 4, 2, 8)
 			.setDescription("Number of spots");
 
 	private final LXModulator numSpotsDamped = startModulator(new DampedParameter(numSpots, 12, 20, 6));
