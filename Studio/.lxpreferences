@@ -1,11 +1,8 @@
 {
-  "projectFileName": "/Volumes/CaseSensitive/Code/lights/Stratovo/Studio/Example.lxp",
-  "uiWidth": -1.0,
-  "uiHeight": -1.0,
+  "projectFileName": "Example.lxp",
+  "windowWidth": 1680,
+  "windowHeight": 1005,
   "focusChannelOnCue": false,
   "focusActivePattern": false,
-  "sendCueToOutput": false,
-  "contentLoader": {
-    "plugins": []
-  }
+  "sendCueToOutput": false
 }

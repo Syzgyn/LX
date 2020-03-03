@@ -68,7 +68,7 @@ void onUIReady(heronarts.lx.studio.LXStudio lx, heronarts.lx.studio.LXStudio.UI 
   // Add custom UI components here
   List<LXChannelBus> channels = lx.engine.getChannels();
   for (LXChannelBus c : channels) {
-    //System.out.println(c.label.getString());
+    //System.out.println(c.label.getStrin  g());
     Vehicle v = (Vehicle) lx.getModel();
     LXModel m = new LXModel(v.lava);
     //c.setModel(m);
